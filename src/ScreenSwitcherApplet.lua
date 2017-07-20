@@ -74,7 +74,7 @@ end
 function openScreensaver(self,random)
 	self.random = false
 	self.player = appletManager:callService("getCurrentPlayer")
-	local licensed = appletManager:callService("isLicensedApplet","ScreenSwitcher")
+	local licensed = true
 	if random or not licensed then
 		self.random = true
 	end
@@ -293,7 +293,7 @@ function openSettings(self)
 	})
 	local window = Window("icon_list", self:string("SCREENSAVER_SCREENSWITCHER_SETTINGS"), 'settingstitle')
 
-	local licensed = appletManager:callService("isLicensedApplet","ScreenSwitcher")
+	local licensed = true
 	local menu = SimpleMenu("menu")
 	if not licensed then
 		menu:setHeaderWidget(Textarea("help_text", self:string("SCREENSAVER_SCREENSWITCHER_SETTINGS_UNLICENSED")))
